@@ -47,6 +47,38 @@ import sys
 
 ###
 
+def countWords(filename):
+  words_dict={}
+  input_file=open("filename",r)
+  for line in input_file:
+    words=line.split()
+  for word in words:
+    word=word.lower();
+    if word in words_dict:
+      words_dict[word]+=1
+    else:
+      word_dict[word]=1
+  input_file.close()
+  return word_dict
+
+def print_words(filename):
+  wordsDict=countWords(filename)
+  Words = sorted(wordsDict.keys())
+  for word in Words:
+    print word, wordsDict[word]
+
+
+def print_top(filename):
+  wordsDict=countWords(filename)
+  Words = sorted(wordsDict.keys())
+  for word in Words[:20]:
+    print word, wordsDict[word]
+
+
+
+
+
+
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
